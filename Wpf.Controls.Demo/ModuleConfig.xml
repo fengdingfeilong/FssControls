@@ -1,0 +1,40 @@
+<Modules>
+  <Module MenuName="菜单1">
+    <Module  MenuName="Say Hello" AssemblyFile="Wpf.Demo.Module1" ClassName="Wpf.Demo.Module1.Pluge1" StartMethod="SayHello">
+    </Module>
+    <Module  MenuName="Say Haha" AssemblyFile="Wpf.Demo.Module1" ClassName="Wpf.Demo.Module1.Pluge1" StartMethod="SayHaha">
+    </Module>
+    <Module MenuName="模块11">
+      <Module MenuName="Say Hello" AssemblyFile="Wpf.Demo.Module1" ClassName="Wpf.Demo.Module1.Pluge1" StartMethod="SayHello">
+      </Module>
+      <Module MenuName="Say Hello" AssemblyFile="Wpf.Demo.Module1" ClassName="Wpf.Demo.Module1.Pluge1" StartMethod="SayHello">
+      </Module>
+      <Module MenuName="模块113">
+      </Module>
+      <Module MenuName="模块114">
+      </Module>
+    </Module>
+    <Module MenuName="模块12">
+    </Module>
+  </Module>
+
+  <Module MenuName="菜单2">
+    <Module MenuName="模块21"></Module>
+    <Module MenuName="模块22"></Module>
+  </Module>
+
+  <Module MenuName="菜单3">
+    <Module MenuName="模块31"></Module>
+    <Module MenuName="模块32"></Module>
+  </Module>
+
+  <Module MenuName="菜单4">
+    <Module MenuName="模块41"></Module>
+    <Module MenuName="模块42"></Module>
+  </Module>
+
+  <Module MenuName="菜单5">
+    <Module MenuName="模块51"></Module>
+    <Module MenuName="模块52"></Module>
+  </Module>
+</Modules>

@@ -1,0 +1,54 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="{x:Type HeaderedItemsControl}">
+        <Setter Property="Margin" Value="5 3"/>
+        <Setter Property="MinWidth" Value="100"/>
+        <Setter Property="BorderBrush" Value="#FF94C1E0"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Background" Value="#FFDFF3FD"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type HeaderedItemsControl}">
+                    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Border Background="{TemplateBinding Background}" Padding="5" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1 1 1 0">
+                            <ContentPresenter ContentSource="Header" />
+                        </Border>
+                        <Border Grid.Row="1" Padding="5 3" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1">
+                            <ItemsPresenter/>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type HeaderedContentControl}">
+        <Setter Property="Margin" Value="5 3"/>
+        <Setter Property="MinWidth" Value="100"/>
+        <Setter Property="BorderBrush" Value="#FF94C1E0"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Background" Value="#FFDFF3FD"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type HeaderedContentControl}">
+                    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Border Background="{TemplateBinding Background}" Padding="5" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1 1 1 0">
+                            <ContentPresenter ContentSource="Header" />
+                        </Border>
+                        <Border Grid.Row="1" Padding="5 3" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1">
+                            <ContentPresenter/>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

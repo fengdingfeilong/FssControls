@@ -1,0 +1,96 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--画刷资源-->
+    <SolidColorBrush x:Key="Common_SolidBackgroundColor" Color="#FF69CAFD"/>
+    <LinearGradientBrush x:Key="Common_GradientBackgroundColor" StartPoint="0.5 0" EndPoint="0.5 1">
+        <LinearGradientBrush.GradientStops>
+            <GradientStop Color="#FFCDE9FD" Offset="0"></GradientStop>
+            <GradientStop Color="#FFD6EDFB" Offset="0.5"></GradientStop>
+            <GradientStop Color="#FFCDE9FD" Offset="1"></GradientStop>
+        </LinearGradientBrush.GradientStops>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="Common_SolidBordColor" Color="#FF7DB6D8"/>
+
+    <LinearGradientBrush x:Key="CommonYellowBrush" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#FFF0FF65" Offset="0"/>
+        <GradientStop Color="#FFF7DC33" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="Common_MouseMove_YellowBrush" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#FFF6FDB5" Offset="0"/>
+        <GradientStop Color="#FFFDF0A1" Offset="1"/>
+    </LinearGradientBrush>    
+    
+    <SolidColorBrush x:Key="Common_MouseMove_SolidBackgroundColor" Color="#FF84D2FB"/>
+    <LinearGradientBrush x:Key="Common_MouseMove_GradientBackgroundColor" StartPoint="0.5 0" EndPoint="0.5 1" SpreadMethod="Reflect">
+        <LinearGradientBrush.GradientStops>
+            <GradientStop Color="#FFB0DEFF" Offset="0"></GradientStop>
+            <GradientStop Color="#FFC1E4F9" Offset="0.5"></GradientStop>
+            <GradientStop Color="#FFB0DEFF" Offset="1"></GradientStop>
+        </LinearGradientBrush.GradientStops>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="Common_MouseMove_SolidBordColor" Color="#FF1B99E2"/>
+
+    <SolidColorBrush x:Key="Common_MouseDown_SolidBackgroundColor" Color="#FF4CBFFB"/>
+    <LinearGradientBrush x:Key="Common_MouseDown_LinearGradientBackgroundColor" StartPoint="0.5 0" EndPoint="0.5 1">
+        <LinearGradientBrush.GradientStops>
+            <GradientStop Color="#FF6FC2FD" Offset="0"></GradientStop>
+            <GradientStop Color="#FF97D7FD" Offset="0.5"></GradientStop>
+            <GradientStop Color="#FF6FC2FD" Offset="1"></GradientStop>
+        </LinearGradientBrush.GradientStops>
+    </LinearGradientBrush>
+    <RadialGradientBrush x:Key="Common_MouseDown_RadialGradientBackgroundColor" GradientOrigin="0.5,0" Center="0.5,0" RadiusX="1.0" RadiusY="0.75">
+        <RadialGradientBrush.GradientStops>
+            <GradientStop Color="#FF50ACE3" Offset="0"/>
+            <GradientStop Color="#FF7FC2EA" Offset="0.5"/>
+            <GradientStop Color="#FFAED8F1" Offset="1.0"/>
+        </RadialGradientBrush.GradientStops>
+    </RadialGradientBrush>
+    <SolidColorBrush x:Key="Common_MouseDown_SolidBordColor" Color="#FF0A80C3"/>
+
+    <LinearGradientBrush x:Key="Common_HeaderBackgroundColor" StartPoint="0.5 0" EndPoint="0.5 1">
+        <LinearGradientBrush.GradientStops>
+            <GradientStop Color="#FFB8DEF8" Offset="0"/>
+            <GradientStop Color="#FF6FBEF3" Offset="0.4"/>
+            <GradientStop Color="#FF279EEE" Offset="0.47"/>
+            <GradientStop Color="#FF279EEE" Offset="0.5"/>
+            <GradientStop Color="#FF279EEE" Offset="0.53"/>
+            <GradientStop Color="#FF6FBEF3" Offset="0.8"/>
+            <GradientStop Color="#FFB8DEF8" Offset="1.0"/>
+        </LinearGradientBrush.GradientStops>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="Common_MouseMove_HeaderBackgroundColor" StartPoint="0.5 0" EndPoint="0.5 1">
+        <LinearGradientBrush.GradientStops>
+            <GradientStop Color="#FFCBE8FB" Offset="0"/>
+            <GradientStop Color="#FF9CD5FB" Offset="0.4"/>
+            <GradientStop Color="#FF5AB9F9" Offset="0.47"/>
+            <GradientStop Color="#FF42A8EE" Offset="0.5"/>
+            <GradientStop Color="#FF5AB9F9" Offset="0.53"/>
+            <GradientStop Color="#FF86CCFB" Offset="0.8"/>
+            <GradientStop Color="#FFCBE8FB" Offset="1.0"/>
+        </LinearGradientBrush.GradientStops>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="Common_MouseDown_HeaderBackgroundColor" StartPoint="0.5 0" EndPoint="0.5 1">
+        <LinearGradientBrush.GradientStops>
+            <GradientStop Color="#FFA0D3F5" Offset="0"/>
+            <GradientStop Color="#FF6BBFF7" Offset="0.4"/>
+            <GradientStop Color="#FF1A93E4" Offset="0.47"/>
+            <GradientStop Color="#FF0C8BE0" Offset="0.5"/>
+            <GradientStop Color="#FF1A93E4" Offset="0.53"/>
+            <GradientStop Color="#FF61BAF5" Offset="0.8"/>
+            <GradientStop Color="#FFA0D3F5" Offset="1.0"/>
+        </LinearGradientBrush.GradientStops>
+    </LinearGradientBrush>
+
+
+    <!--画刷资源-->
+
+    <!--==========================================================================-->
+
+    <!--背景资源-->
+    <!--背景资源-->
+
+    <!--==========================================================================-->
+
+    <!--动画资源-->
+    <!--动画资源-->
+</ResourceDictionary>

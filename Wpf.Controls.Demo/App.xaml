@@ -1,0 +1,10 @@
+﻿<Application
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" x:Class="Wpf.Controls.Demo.App"
+            StartupUri="MainWindow.xaml"
+            Startup="Application_Startup"
+            DispatcherUnhandledException="Application_DispatcherUnhandledException">
+    <Application.Resources>
+    </Application.Resources>
+</Application>

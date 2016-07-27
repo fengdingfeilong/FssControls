@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="Separator">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Separator">
+                    <Grid Margin="0,6,0,4" SnapsToDevicePixels="true" UseLayoutRounding="False">
+                        <Rectangle Fill="#FF27A9F1" Height="1" Margin="30,0,1,1"/>
+                        <Rectangle Fill="#FFF6FBFD" Height="1" Margin="30,1,1,0"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

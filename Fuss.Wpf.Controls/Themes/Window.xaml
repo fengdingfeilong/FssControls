@@ -1,0 +1,200 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Menu.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    <Style x:Key="WindowStyle" TargetType="Window">
+        <Setter Property="AllowsTransparency" Value="True"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="WindowStyle" Value="None"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <!-- 窗体模板-->
+                <ControlTemplate x:Name="WindowTemplate" TargetType="Window">
+                    <Border x:Name="FussWindowBorder" Margin="6 6 0 0" BorderBrush="#016DB6" BorderThickness="1" Background="#FF80CBFD">
+                        <Grid Background="White" Margin="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Border Name="TitleBar" Height="30" Background="#FF52ABE2">
+                                <DockPanel Margin="0">
+                                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Left" VerticalAlignment="Center">
+                                        <Image Name="IconImage" Source="{TemplateBinding Icon}" Margin="5"/>
+                                        <TextBlock Name="TitleText" VerticalAlignment="Center" FontSize="12" Foreground="#FF101010" Text="{TemplateBinding Title}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" DockPanel.Dock="Right" VerticalAlignment="Top">
+                                        <Rectangle x:Name="MiniSplitter" Style="{DynamicResource Splitter}"/>
+                                        <Button x:Name="MiniButton" Width="24" Height="18" Template="{DynamicResource MiniButton}"/>
+                                        <Rectangle x:Name="MaxSplitter" Style="{DynamicResource Splitter}"/>
+                                        <Button x:Name="MaxButton" Width="24" Height="18" Template="{DynamicResource WinNormalButton}"/>
+                                        <Rectangle x:Name="CloseSplitter" Style="{DynamicResource Splitter}"/>
+                                        <Button x:Name="CloseButton" Width="24" Height="18" Template="{DynamicResource CloseButton}"/>
+                                    </StackPanel>
+                                </DockPanel>
+                            </Border>
+                            <Border Grid.Row="1" BorderBrush="#016DB6" BorderThickness="1">
+                                <AdornerDecorator Height="Auto" Width="Auto">
+                                    <ContentPresenter/>
+                                </AdornerDecorator>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- 最小化、最大化、关闭按钮中的形状-->
+    <DrawingBrush x:Key="MiniButtonBrush">
+        <DrawingBrush.Drawing>
+            <GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 0.5,0.500019L 14.6617,0.500019L 14.6617,4.4504L 0.5,4.4504L 0.5,0.500019 Z ">
+                <GeometryDrawing.Pen>
+                    <Pen LineJoin="Round" Brush="#FFBBBBBB"/>
+                </GeometryDrawing.Pen>
+            </GeometryDrawing>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+    <DrawingBrush x:Key="WinNormalButtonBrush">
+        <DrawingBrush.Drawing>
+            <GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 0.5,0.500019L 16.3668,0.500019L 16.3668,14.2512L 0.5,14.2512L 0.5,0.500019 Z M 2.08649,5.64223L 2.08649,12.6646L 14.78,12.6646L 14.78,5.64223L 2.08649,5.64223 Z ">
+                <GeometryDrawing.Pen>
+                    <Pen LineJoin="Round" Brush="#FFBBBBBB"/>
+                </GeometryDrawing.Pen>
+            </GeometryDrawing>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+    <DrawingBrush x:Key="WinMaxButtonBrush">
+        <DrawingBrush.Drawing>
+            <GeometryDrawing Brush="#FFFFFFFF" Geometry="M 0.5,4.06633L 13.4832,4.06633L 13.4832,15.3185L 0.5,15.3185L 0.5,4.06633 Z M 1.7981,8.27409L 1.7981,14.0202L 12.1847,14.0202L 12.1847,8.27409L 1.7981,8.27409 Z M 5.35681,0.500046L 16.7081,0.500046L 16.7081,12.8763L 13.5714,12.8763L 13.5714,3.77306L 5.35681,3.77306L 5.35681,0.500046 Z ">
+                <GeometryDrawing.Pen>
+                    <Pen LineJoin="Round" Brush="#FFBBBBBB"/>
+                </GeometryDrawing.Pen>
+            </GeometryDrawing>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+    <DrawingBrush x:Key="CloseButtonBrush">
+        <DrawingBrush.Drawing>
+            <GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 12.2761,13.4706L 9.01202,13.4706L 6.69733,9.18803C 6.61554,9.03154 6.53027,8.75065 6.44135,8.34532L 6.40936,8.34532C 6.36493,8.54625 6.26447,8.83506 6.10797,9.21202L 3.78802,13.4706L 0.5,13.4706L 4.63336,6.98002L 0.84137,0.500042L 4.19604,0.500042L 6.12402,4.45201C 6.27875,4.77378 6.41205,5.12931 6.52399,5.51866L 6.55597,5.51866C 6.67157,5.16838 6.81201,4.79869 6.97736,4.40928L 9.0733,0.500042L 12.1054,0.500042L 8.28131,6.93199L 12.2761,13.4706 Z ">
+                <GeometryDrawing.Pen>
+                    <Pen LineJoin="Round" Brush="#FFBBBBBB"/>
+                </GeometryDrawing.Pen>
+            </GeometryDrawing>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <Style x:Key="Splitter" TargetType="Rectangle">
+        <Setter Property="Width" Value="1"/>
+        <Setter Property="Stroke" Value="Transparent"/>
+        <Setter Property="StrokeThickness" Value="0"/>
+        <Setter Property="Fill">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Color="#FF0000FF" Offset="0"/>
+                        <GradientStop Color="#800000FF" Offset="0.4"/>
+                        <GradientStop Color="#000000FF" Offset="1.0"/>
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--正常、鼠标移过、鼠标点击的颜色-->
+    <SolidColorBrush x:Key="Win_NormalBackground" Color="Transparent"/>
+    <SolidColorBrush x:Key="Win_MouseMoveBackground" Color="#FF59B9F6"/>
+    <SolidColorBrush x:Key="Win_MouseDownBackground" Color="#FF339AFF"/>
+    <SolidColorBrush x:Key="Win_MouseMoveBackground_Close" Color="#F84747"/>
+    <SolidColorBrush x:Key="Win_MouseDownBackground_Close" Color="#EE2C2C"/>
+
+    <Style x:Key="BackBorder" TargetType="Border">
+        <Setter Property="Background" Value="{DynamicResource Win_NormalBackground}"></Setter>
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="MouseEnter">
+                <EventTrigger.Actions>
+                    <BeginStoryboard>
+                        <Storyboard Storyboard.TargetProperty="Background.Color">
+                            <ColorAnimation To="#FF59B9F6" Duration="0:0:0.4"></ColorAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger.Actions>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="MouseLeave">
+                <EventTrigger.Actions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="Background.Color" To="Transparent" Duration="0:0:0.4"></ColorAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger.Actions>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="CloseBackBorder" TargetType="Border">
+        <Setter Property="Background" Value="{DynamicResource Win_NormalBackground}"></Setter>
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="MouseEnter">
+                <EventTrigger.Actions>
+                    <BeginStoryboard>
+                        <Storyboard Storyboard.TargetProperty="Background.Color">
+                            <ColorAnimation From="#00F84747" To="#FFF84747" Duration="0:0:0.4"></ColorAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger.Actions>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="MouseLeave">
+                <EventTrigger.Actions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="Background.Color" To="Transparent" Duration="0:0:0.4"></ColorAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger.Actions>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--最小化、最大化、关闭按钮模板-->
+    <ControlTemplate x:Key="MiniButton" TargetType="Button">
+        <Border x:Name="mini_BackBorder" Style="{DynamicResource BackBorder}">
+            <Canvas Background="{StaticResource MiniButtonBrush}" Width="10" Height="5"></Canvas>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsPressed"  Value="True">
+                <Setter TargetName="mini_BackBorder" Property="Background" Value="{StaticResource Win_MouseDownBackground}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <ControlTemplate x:Key="WinMaxButton" TargetType="Button">
+        <Border x:Name="max_BackBorder" Style="{DynamicResource BackBorder}">
+            <Canvas Background="{StaticResource WinMaxButtonBrush}" Width="10" Height="8"></Canvas>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="max_BackBorder" Property="Background" Value="{StaticResource Win_MouseDownBackground}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <ControlTemplate x:Key="WinNormalButton" TargetType="Button">
+        <Border x:Name="max_BackBorder" Style="{DynamicResource BackBorder}">
+            <Canvas Background="{StaticResource WinNormalButtonBrush}" Width="10" Height="8"></Canvas>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="max_BackBorder" Property="Background" Value="{StaticResource Win_MouseDownBackground}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <ControlTemplate x:Key="CloseButton" TargetType="Button">
+        <Border x:Name="close_BackBorder" Style="{DynamicResource CloseBackBorder}">
+            <Canvas Background="{StaticResource CloseButtonBrush}" Width="10" Height="10"></Canvas>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="close_BackBorder" Property="Background" Value="{StaticResource Win_MouseDownBackground_Close}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+</ResourceDictionary>
