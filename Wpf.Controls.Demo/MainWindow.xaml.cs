@@ -27,6 +27,9 @@ namespace Wpf.Controls.Demo
 
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            FadeInOutWindow popupwin = new FadeInOutWindow(this,"这个提示框将在2秒后自动关闭");
+            popupwin.Show();
+
             ModuleMenu.DataContext = new MenuVM();
 
             var people = new List<Person>();
