@@ -64,6 +64,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\FadeInOutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\ScrollBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -105,6 +109,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="ThemeManager.cs" />
+    <Compile Include="Themes\FadeInOutWindow.xaml.cs">
+      <DependentUpon>FadeInOutWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Themes\SelectButton.xaml.cs">
       <DependentUpon>SelectButton.xaml</DependentUpon>
     </Compile>
