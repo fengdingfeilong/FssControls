@@ -5,11 +5,12 @@
     </ResourceDictionary.MergedDictionaries>
     <Style TargetType="Button">
         <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Padding" Value="5 2"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
                     <Border x:Name="button_Border" Background="{StaticResource Common_GradientBackgroundColor}" BorderBrush="{StaticResource Common_SolidBordColor}" BorderThickness="1" CornerRadius="3">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Margin}" Content="{TemplateBinding ContentControl.Content}"></ContentPresenter>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}" Content="{TemplateBinding ContentControl.Content}"></ContentPresenter>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="Button.IsMouseOver" Value="True">
@@ -29,11 +30,12 @@
     
     <Style TargetType="ToggleButton">
         <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Padding" Value="5 2"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
                     <Border x:Name="button_Border" Background="{StaticResource Common_GradientBackgroundColor}" BorderBrush="{StaticResource Common_SolidBordColor}" BorderThickness="1" CornerRadius="3">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding ContentControl.Content}"></ContentPresenter>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}" Content="{TemplateBinding ContentControl.Content}"></ContentPresenter>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="ToggleButton.IsMouseOver" Value="True">
@@ -53,11 +55,12 @@
 
     <Style TargetType="RepeatButton">
         <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Padding" Value="5 2"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
                     <Border x:Name="button_Border" Background="{StaticResource Common_GradientBackgroundColor}" BorderBrush="{StaticResource Common_SolidBordColor}" BorderThickness="1" CornerRadius="3">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="{TemplateBinding ContentControl.Content}"></ContentPresenter>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}" Content="{TemplateBinding ContentControl.Content}"></ContentPresenter>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="RepeatButton.IsMouseOver" Value="True">
