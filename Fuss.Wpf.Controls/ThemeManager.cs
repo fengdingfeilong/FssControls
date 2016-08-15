@@ -18,7 +18,7 @@ namespace Fuss.Wpf.Controls
         {
             ResourceDictionary resource = new ResourceDictionary();
             resource.Source = new Uri("Fuss.Wpf.Controls;component/Themes/Generic.xaml", UriKind.Relative);
-            Application.Current.Resources.MergedDictionaries.Add(resource);
+            Application.Current.Resources.MergedDictionaries.Insert(0, resource);
         }
     }
 }
