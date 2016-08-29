@@ -42,10 +42,18 @@
             </ScrollViewer.Resources>
             <WrapPanel Margin="10">
                 <HeaderedItemsControl Header="Button">
-                    <Button Margin="5" Content="按钮" Name="Test" Width="120" Height="26"/>
-                    <ToggleButton Margin="5" Content="ToggleButton" Width="120" Height="26"/>
-                    <RepeatButton Margin="5" Content="RepeatButton" Width="120" Height="26"/>
-                    <fuss:SelectButton Margin="5"  Width="120" Height="26"/>
+                    <Button Margin="2" Content="按钮" Name="Test" Width="120" Height="26"/>
+                    <ToggleButton Margin="2" Content="ToggleButton" Width="120" Height="26"/>
+                    <RepeatButton Margin="2" Content="RepeatButton" Width="120" Height="26"/>
+                    <fuss:SelectButton Margin="2"  Width="120" Height="26"/>
+                    <fuss:SwitchButton>
+                        <fuss:SwitchButton.LeftSide>
+                            <TextBlock Text="OFF" HorizontalAlignment="Center"/>
+                        </fuss:SwitchButton.LeftSide>
+                        <fuss:SwitchButton.RightSide>
+                            <TextBlock Text="ON" HorizontalAlignment="Center"/>
+                        </fuss:SwitchButton.RightSide>
+                    </fuss:SwitchButton>
                 </HeaderedItemsControl>
                 <HeaderedItemsControl Header="TextBox">
                     <TextBox/>
@@ -141,24 +149,38 @@
                     </GroupBox>
                 </HeaderedItemsControl>
                 <HeaderedItemsControl Header="TabControl">
-                    <TabControl Height="160">
-                        <TabItem Header="ContextMenu">
-                            <Border Background="#FFAED7FF" >
-                                <Border.ContextMenu>
-                                    <ContextMenu>
-                                        <MenuItem Header="菜单1"/>
-                                        <MenuItem Header="菜单2"/>
-                                        <MenuItem Header="菜单3"/>
-                                    </ContextMenu>
-                                </Border.ContextMenu>
-                            </Border>
-                        </TabItem>
-                        <TabItem Header="Expander">
-                            <StackPanel>
-                                <ToggleButton Name="ExpanderButton" Style="{DynamicResource ExpanderUpHeaderStyle}"/>
-                            </StackPanel>
-                        </TabItem>
-                    </TabControl>
+                    <UniformGrid Rows="2">
+                        <TabControl Height="80">
+                            <TabItem Header="ContextMenu">
+                                <Border Background="#FFAED7FF" >
+                                    <Border.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem Header="菜单1"/>
+                                            <MenuItem Header="菜单2"/>
+                                            <MenuItem Header="菜单3"/>
+                                        </ContextMenu>
+                                    </Border.ContextMenu>
+                                </Border>
+                            </TabItem>
+                            <TabItem Header="Expander">
+                                <StackPanel>
+                                    <ToggleButton Name="ExpanderButton" Style="{DynamicResource ExpanderUpHeaderStyle}"/>
+                                </StackPanel>
+                            </TabItem>
+                        </TabControl>
+                        <TabControl  Height="80">
+                            <TabItem Style="{StaticResource TabItemStyle2}">
+                                <TabItem.Header>
+                                    <Label Content="标签 1" Width="50" Height="30"/>
+                                </TabItem.Header>
+                            </TabItem>
+                            <TabItem Style="{StaticResource TabItemStyle2}">
+                                <TabItem.Header>
+                                    <Label Content="标签 2" Width="50" Height="30"/>
+                                </TabItem.Header>
+                            </TabItem>
+                        </TabControl>
+                    </UniformGrid>
                 </HeaderedItemsControl>
 
                 <HeaderedItemsControl Header="ProgressBar">
