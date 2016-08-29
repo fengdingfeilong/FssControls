@@ -5,7 +5,11 @@
         <ResourceDictionary Source="Common.xaml"/>
         <ResourceDictionary Source="ToolTip.xaml"/>
     </ResourceDictionary.MergedDictionaries>
-
+    
+    <Style TargetType="TextBlock">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    
     <Style TargetType="{x:Type TextBox}">
         <Style.Resources>
             <Style TargetType="ToolTip" BasedOn="{StaticResource ErrorToolTip}"/>

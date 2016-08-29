@@ -42,6 +42,8 @@
     <Style TargetType="{x:Type CheckBox}">
         <Setter Property="MinHeight" Value="24"/>
         <Setter Property="MinWidth" Value="75"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
         <Setter Property="BorderThickness" Value="1"/>
