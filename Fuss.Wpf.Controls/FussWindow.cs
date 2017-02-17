@@ -27,8 +27,33 @@ namespace Fuss.Wpf.Controls
             }
         }
 
-        private ControlTemplate myTemplate;
-        private ResourceDictionary resource = null;
+        private bool _showMenuBar = true;
+        private bool _showStatusBar = true;
+        public bool ShowMenuBar
+        {
+            get
+            {
+                return _showMenuBar;
+            }
+            set
+            {
+                _showMenuBar = value;
+            }
+        }
+        public bool ShowStatusBar
+        {
+            get
+            {
+                return _showStatusBar;
+            }
+            set
+            {
+                _showStatusBar = value;
+            }
+        }
+
+        //private ControlTemplate myTemplate;
+        private ResourceDictionary resource = new ResourceDictionary();
 
         private const int WM_NCHITTEST = 0x0084;
         private const int WM_GETMINMAXINFO = 0x0024;
@@ -39,34 +64,94 @@ namespace Fuss.Wpf.Controls
         private readonly int bThickness = 4; // 边框宽度
         private Point mousePoint = new Point(); //鼠标坐标
 
+        private Menu moduleMenu;
         public FussWindow()
         {
-            resource = Application.Current.Resources;
+            resource.Source = new Uri("Fuss.Wpf.Controls;component/Themes/Generic.xaml", UriKind.Relative);
+            Application.Current.Resources.MergedDictionaries.Add(resource);
             this.Style = (Style)resource["WindowStyle"];
-            if (this.Style == null) { throw new Exception("样式加载失败"); }
             this.MaxWidth = SystemParameters.WorkArea.Width + 8;
             this.MaxHeight = SystemParameters.WorkArea.Height + 8;
             this.MinHeight = 120;
             this.MinWidth = 200;
-            myTemplate = (ControlTemplate)(this.Style.Setters[3] as Setter).Value;
+            //myTemplate = (ControlTemplate)(this.Style.Setters[3] as Setter).Value;
             this.Loaded += FussWindow_Loaded;
         }
 
+        //根据对应的配置生成菜单项，实现注入
+        private List<MenuItem> BuildMenu(List<ModuleInfo> modules)
+        {
+            var menuitems = new List<MenuItem>();
+            if (modules == null || modules.Count == 0)
+                return menuitems;
+            foreach (var module in modules)
+            {
+                MenuItem menuItem = new MenuItem();
+                menuItem.Header = module.MenuName;
+                menuItem.Tag = module;
+                if (!string.IsNullOrEmpty(module.AssemblyFile) && !string.IsNullOrEmpty(module.ClassName))
+                    menuItem.Click += menuItem_Click;
+                var children = BuildMenu(module.ModuleChildren);
+                children.ForEach(item => menuItem.Items.Add(item));
+                menuitems.Add(menuItem);
+            }
+            return menuitems;
+        }
+
+        //在此使用反射，根据程序集、类型及方法执行相应操作
+        private void menuItem_Click(object sender, RoutedEventArgs e)
+        {
+            ModuleInfo module = (sender as MenuItem).Tag as ModuleInfo;
+            var assembly = Assembly.Load(module.AssemblyFile);
+            if (assembly != null)
+            {
+                try
+                {
+                    //在此处调用插件
+                    var moduleClass = assembly.CreateInstance(module.ClassName);
+                    moduleClass.GetType().InvokeMember(module.StartMethod, BindingFlags.Default | BindingFlags.InvokeMethod, null, moduleClass, null);
+                }
+                catch
+                {
+                    throw new Exception("调用组件失败，请检查配置文件与类型、方法是否匹配");
+                }
+            }
+        }
+
+        private void LoadMenu()
+        {
+            moduleMenu = (Menu)this.GetTemplateChild("ModuleMenu");
+            var modules = ModuleHelper.GetModuleInfo();
+            var menuitems = BuildMenu(modules);
+            menuitems.ForEach(item => moduleMenu.Items.Add(item));
+        }
         private void FussWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            ((Button)myTemplate.FindName("MiniButton", this)).Click += (s1, e1) =>
+            //LoadMenu();
+            if (!ShowMenuBar)
+                ((Border)this.GetTemplateChild("MenuBar")).Visibility = Visibility.Collapsed;
+            if (!ShowStatusBar)
+                ((Border)this.GetTemplateChild("StatusBar")).Visibility = Visibility.Collapsed;
+
+            //((TextBlock)myTemplate.FindName("TitleText", this)).Text = this.Title;
+            Binding mybinding = new Binding();
+            mybinding.Source = this;
+            mybinding.Path = new PropertyPath("Title");
+            mybinding.Mode = BindingMode.TwoWay;
+            ((TextBlock)this.GetTemplateChild("TitleText")).SetBinding(TextBlock.TextProperty, mybinding);
+            ((Button)this.GetTemplateChild("MiniButton")).Click += (s1, e1) =>
             {
                 this.WindowState = WindowState.Minimized;
             };
-            ((Button)myTemplate.FindName("CloseButton", this)).Click += (s2, e2) =>
+            ((Button)this.GetTemplateChild("CloseButton")).Click += (s2, e2) =>
             {
                 this.Close();
             };
-            Button maxButton = (Button)myTemplate.FindName("MaxButton", this);
+            Button maxButton = (Button)this.GetTemplateChild("MaxButton");
             if (!ShowMax)
             {
                 maxButton.Visibility = Visibility.Collapsed;
-                (myTemplate.FindName("MaxSplitter", this) as Rectangle).Visibility = Visibility.Collapsed;
+                ((Rectangle)this.GetTemplateChild("MaxSplitter")).Visibility = Visibility.Collapsed;
             }
             else
                 maxButton.Visibility = Visibility.Visible;
@@ -75,13 +160,13 @@ namespace Fuss.Wpf.Controls
                 if (this.WindowState == WindowState.Normal)
                 {
                     maxButton.Template = (ControlTemplate)resource["WinMaxButton"];
-                    ((Border)(myTemplate.FindName("FussWindowBorder", this))).BorderThickness = new Thickness(0);
+                    ((Border)(this.GetTemplateChild("FussWindowBorder"))).BorderThickness = new Thickness(0);
                     this.WindowState = WindowState.Maximized;
                 }
                 else
                 {
                     maxButton.Template = (ControlTemplate)resource["WinNormalButton"];
-                    ((Border)(myTemplate.FindName("FussWindowBorder", this))).BorderThickness = new Thickness(1);
+                    ((Border)(this.GetTemplateChild("FussWindowBorder"))).BorderThickness = new Thickness(1);
                     this.WindowState = WindowState.Normal;
                 }
             };
@@ -90,12 +175,12 @@ namespace Fuss.Wpf.Controls
                 if (this.WindowState == WindowState.Normal)
                 {
                     maxButton.Template = (ControlTemplate)resource["WinNormalButton"];
-                    ((Border)(myTemplate.FindName("FussWindowBorder", this))).BorderThickness = new Thickness(1);
+                    ((Border)(this.GetTemplateChild("FussWindowBorder"))).BorderThickness = new Thickness(1);
                 }
                 else
                 {
                     maxButton.Template = (ControlTemplate)resource["WinMaxButton"];
-                    ((Border)(myTemplate.FindName("FussWindowBorder", this))).BorderThickness = new Thickness(0);
+                    ((Border)(this.GetTemplateChild("FussWindowBorder"))).BorderThickness = new Thickness(0);
                 }
             };
             HwndSource hwndSource = PresentationSource.FromVisual(this) as HwndSource;
